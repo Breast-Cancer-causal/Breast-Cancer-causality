@@ -11,9 +11,14 @@ Created on Mon Aug 23 22:34:07 2021
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+from matplotlib import pyplot as plt
+
+plt.rcParams.update({'figure.figsize': (12.0, 8.0)})
+plt.rcParams.update({'font.size': 14})
+
 
 # Importing the dataset
-dataset = pd.read_csv('data.csv')
+dataset = pd.read_csv(r'C:/Users/Smegn/Documents/GitHub/Breast-Cancer/data/data.csv')
 X = dataset.iloc[:, 2:32].values
 y = dataset.iloc[:, 1].values
 
@@ -44,3 +49,6 @@ output = clf.predict(X_test)
 accuracy = accuracy_score(y_test, output) 
 print("The accuracy of testing data: ",accuracy)
 print("The running time: ",time()-t)
+
+X.shape()
+
