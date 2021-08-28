@@ -39,7 +39,8 @@ The mean, standard error and “worst” or largest (mean of the three largest v
 
 Workflow
  
- Read the data
+  Read the data
+
 1.Perform exploratory analysis on it
 
 2.Extract features and scale the extracted feature
@@ -51,9 +52,11 @@ Workflow
 5.Examine the model performance based on the graph
 
 Installation
+
 pip install causalgraphicalmodels
 
 Skills:
+
 A,Modelling a given problem as a causal graph
 
 B,Statistical Modelling and Inference Extraction
@@ -61,6 +64,7 @@ B,Statistical Modelling and Inference Extraction
 C,Building model pipelines and orchestration
 
 Knowledge:
+
 A,Knowledge about casual graph and statistical learning
 
 B,Hypothesis Formulation and Testing 
@@ -68,6 +72,7 @@ B,Hypothesis Formulation and Testing
 C,Statistical Analysis
 
 Resources
+
 1.https://github.com/sharmaroshan/Breast-Cancer-Wisconsin/blob/master/BreastCancerDiagnosis.ipynb
 
 2.https://github.com/Gyubin/WDBC_analysis
@@ -90,6 +95,7 @@ Resources
 10.https://github.com/shubamsumbria66/Breast-Cancer-Pred/blob/main/models/src.py
 
 Related Packages
+
 A.ausality
 
 B.CausalInference
