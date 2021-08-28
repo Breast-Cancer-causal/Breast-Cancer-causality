@@ -1,22 +1,18 @@
-name:Breast-Cancer-causality 
+name: model-training
 on: [push]
 jobs:
   run:
     runs-on: [ubuntu-latest]
-
+    container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
-      - uses: iterative/setup-cml@v1
-        run: |
-          # Your ML workflow goes here
-          # pip install -r requirements.txt
-          # python scripts/cml_result.py
-      - name: Write CML report
+      - name: 'Train my model'
         env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Post reports as comments in GitHub PRs
-          touch 'model_result.txt'
-          echo $(date) Model Training CML. >> model_result.txt
-          cat model_result.txt >> report.md
+          pip install -r requirements.txt
+          python train.py
+
+          cat metrics.txt >> report.md
+          cml-publish confusion_matrix.png --md >> report.md
           cml-send-comment report.md
