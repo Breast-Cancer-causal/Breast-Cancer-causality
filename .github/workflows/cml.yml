@@ -1,16 +1,22 @@
-name: train-my-model 
-on: [push] jobs: 
-run:    runs-on: [ubuntu-latest]
-steps:      - uses: actions/checkout@v2     
-- uses: iterative/setup-cml@v1   
-- uses: actions/setup-python@v2       
-with:          python-version: '3.x'     
-- name: cml        
-env:          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
-run: |
-          pip3 install -r requirements.txt
-          python train.py
- 
-          cat metrics.txt >> report.md
-          cml-publish confusion_matrix.png --md >> report.md
+name:Breast-Cancer-causality 
+on: [push]
+jobs:
+  run:
+    runs-on: [ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: iterative/setup-cml@v1
+        run: |
+          # Your ML workflow goes here
+          # pip install -r requirements.txt
+          # python scripts/cml_result.py
+      - name: Write CML report
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Post reports as comments in GitHub PRs
+          touch 'model_result.txt'
+          echo $(date) Model Training CML. >> model_result.txt
+          cat model_result.txt >> report.md
           cml-send-comment report.md
