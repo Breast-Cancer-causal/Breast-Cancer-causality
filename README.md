@@ -96,7 +96,7 @@ Resources
 
 Related Packages
 
-A.ausality
+A.causality
 
 B.CausalInference
 
